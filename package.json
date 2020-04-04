@@ -1,0 +1,15 @@
+{
+  "name": "random-image",
+  "version": "0.0.1",
+  "license": "MIT",
+  "host" : "https://minio.newlinkedlist.xyz",
+  "scripts": {
+    "start": "node app-imgur.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "minio": "^7.0.15"
+  },
+  "devDependencies": {}
+}
