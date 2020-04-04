@@ -1,13 +1,16 @@
 const version = require('./package.json').version
-const host = require('./package.json').host
 
-module.exports = function(app, filenames){
+module.exports = function(app, urls){
     app.get('/version', (req, res) => {
         res.json({'version' : version})
     });
 
     app.post('/', (req, res) => {
-        var filename = filenames[Math.floor(Math.random() * filenames.length)];
-        res.send(host + "/jasper/" + filename);
+        var url = urls[Math.floor(Math.random() * urls.length)];
+	jsonResponse = {
+	    "response_type": "in_channel",
+	    "text": url
+	}
+        res.json(jsonResponse);
     });
 }

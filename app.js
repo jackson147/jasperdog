@@ -3,39 +3,17 @@ const app = express()
 const port =  8080
 const cors = require('cors');
 const bodyParser = require('body-parser')
-const Minio = require('minio')
- 
-var minioClient = new Minio.Client({
-    endPoint: 'minio.newlinkedlist.xyz',
-    port: 443,
-    useSSL: true,
-    accessKey: 'jackson147',
-    secretKey: 'jklsadhoahjsd7876*^&(*^alskdjahsd675^£^0)8*&^*&&0jasiudh'
-});
+const fs = require("fs");
 
-// Get all of the jasper image urls.
-var objectsStream = minioClient.listObjects('jasper', '', true)
+let allUrls = fs.readFileSync("./urls.txt").toString('utf8');
+let urlsArray = allUrls.split("\n");
 
-function streamToString (stream) {
-    const chunks = []
-    return new Promise((resolve, reject) => {
-        stream.on('data', chunk => {
-            // console.log(chunk.name);
-            chunks.push(chunk.name);
-        })
-        stream.on('error', reject)
-        stream.on('end', () => resolve(chunks))
-    })
-}
+// use it before all route definitions
+app.use(cors({origin: '*'}));
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: false })); // support encoded bodies
 
-streamToString(objectsStream)
-    .then(function(filenames){
-        // use it before all route definitions
-        app.use(cors({origin: '*'}));
-        app.use(bodyParser.json())
-
-        require('./routes.js')(app, filenames);
-        app.listen(port, () => console.log(`Example app listening on port ${port}!`))
-    })
+require('./routes.js')(app, urlsArray);
+app.listen(port, () => console.log(`JasperDog is listening on port ${port}!`))
 
 
