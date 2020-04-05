@@ -5,6 +5,8 @@ services:
     image: jasperdog:latest
     networks:
      - web
+    secrets:
+     - slack-signing-secret
     deploy:
       labels:
         - "traefik.enable=true" # <== Enable traefik to proxy this container
@@ -16,4 +18,8 @@ services:
         - "traefik.http.middlewares.test-ratelimit.ratelimit.period=1m"
 networks:
   web:
+    external: true
+
+secrets:
+  slack-signing-secret:
     external: true
