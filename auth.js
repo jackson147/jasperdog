@@ -1,8 +1,10 @@
 const crypto = require('crypto');
 const qs = require('qs');
-// fetch this from environment variables
-//
-let authSlack = (req, slackSigningSecret) => {
+const fs = require('fs');
+
+let slackSigningSecret = fs.readFileSync("/run/secrets/slack-signing-secret").toString('utf8').trim();
+
+let authSlack = (req) => {
    let slackSignature = req.headers['x-slack-signature'];
    let requestBody = qs.stringify(req.body, {format : 'RFC1738'});
    let timestamp = req.headers['x-slack-request-timestamp'];
