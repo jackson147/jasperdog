@@ -1,7 +1,8 @@
 const version = require('./package.json').version;
-const auth = require('./auth');
+const auth = require('./slack-auth');
 const fs = require('fs');
 const request = require('request');
+const jaspertools = require('./jasper-tools')
 
 let clientId = fs.readFileSync("/run/secrets/slack-client-id").toString('utf8').trim();
 let clientSecret = fs.readFileSync("/run/secrets/slack-client-secret").toString('utf8').trim();
@@ -39,10 +40,9 @@ module.exports = function(app, urls){
     app.post('/', (req, res) => {
 	jsonResponse = {};
         if(auth(req)){
-          let url = urls[Math.floor(Math.random() * urls.length)];
           jsonResponse = {
 	      "response_type": "in_channel",
-	      "text": url
+	      "text": jaspertools.getRandomImageUrl(false)
           }
 	} else {
 	  jsonResponse = {

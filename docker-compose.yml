@@ -9,6 +9,7 @@ services:
      - slack-signing-secret
      - slack-client-id
      - slack-client-secret
+     - discord-secret
     deploy:
       labels:
         - "traefik.enable=true" # <== Enable traefik to proxy this container
@@ -28,4 +29,6 @@ secrets:
   slack-client-id:
     external: true
   slack-client-secret:
+    external: true
+  discord-secret:
     external: true
