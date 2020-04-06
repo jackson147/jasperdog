@@ -23,3 +23,6 @@ Hooks up with slack to be used as a slash command.
 
 #### Docker swarm overlay network:
 * web
+
+## Notes
+I've left the labels in that work with traefik, you'll need to edit them to work with your deployment. If you're not using traefik the labels should just be ignored.
