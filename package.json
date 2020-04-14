@@ -1,6 +1,6 @@
 {
   "name": "random-image",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "start": "node app.js"
