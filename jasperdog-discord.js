@@ -12,6 +12,10 @@ module.exports = function(){
     client.on("message", msg => {
         if (msg.content.toLowerCase().startsWith("jasper")) {
             msg.reply(jaspertools.getRandomImageUrl(true))
+        }else if(msg.content.toLocaleLowerCase().startsWith("@jasperdog")){
+            msg.reply("Woof Woof!")
+        }else if(msg.content.toLocaleLowerCase().startsWith("jasper carrot")){
+            msg.reply("https://i2-prod.birminghammail.co.uk/incoming/article14143650.ece/ALTERNATES/s810/Jasper-face-crop.jpg")
         }
     })
     client.login(discordSecret)

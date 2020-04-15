@@ -48,7 +48,7 @@ node {
         stage("Deploy") {
             sshCommand remote: remote, command: 'mkdir -p ./deployments/jasperdog/'
             sshPut remote: remote, from: 'docker-compose.yml', into: './deployments/jasperdog/' , override: true
-            sshCommand remote: remote, command: 'docker stack rm jasperdog && sleep 3 && docker stack deploy -c ./deployments/jasperdog/docker-compose.yml jasperdog'
+            sshCommand remote: remote, command: 'docker stack rm jasperdog && sleep 30 && docker stack deploy -c ./deployments/jasperdog/docker-compose.yml jasperdog'
         }
     }
 }
