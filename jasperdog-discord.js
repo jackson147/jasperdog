@@ -10,12 +10,13 @@ module.exports = function(){
         console.log(`Logged in as ${client.user.tag}!`)
     })
     client.on("message", msg => {
-        if (msg.content.toLowerCase().startsWith("jasper")) {
-            msg.reply(jaspertools.getRandomImageUrl(true))
-        }else if(msg.content.toLocaleLowerCase().startsWith("@jasperdog")){
-            msg.reply("Woof Woof!")
-        }else if(msg.content.toLocaleLowerCase().startsWith("jasper carrot")){
-            msg.reply("https://i2-prod.birminghammail.co.uk/incoming/article14143650.ece/ALTERNATES/s810/Jasper-face-crop.jpg")
+        let messageContent = msg.content.toLowerCase()
+        if (messageContent.startsWith("jasper")) {
+            if(messageContent.includes("carrot")){
+                msg.reply("https://i2-prod.birminghammail.co.uk/incoming/article14143650.ece/ALTERNATES/s810/Jasper-face-crop.jpg")
+            }else{
+                msg.reply(jaspertools.getRandomImageUrl(true))
+            }
         }
     })
     client.login(discordSecret)
