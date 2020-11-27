@@ -38,18 +38,18 @@ module.exports = function(app, urls){
     })
 
     app.post('/', (req, res) => {
-	jsonResponse = {};
+        jsonResponse = {};
         if(auth(req)){
-          jsonResponse = {
-	      "response_type": "in_channel",
-	      "text": jaspertools.getRandomImageUrl(false)
-          }
-	} else {
-	  jsonResponse = {
-           "response_type": "ephemeral",
-           "text": "You are trying to use this bot outside of slack... Jasper is disappointed in you..."
-          }
-	}
+            jsonResponse = {
+                "response_type": "in_channel",
+                "text": jaspertools.getRandomImageUrl(false)
+            }
+        } else {
+            jsonResponse = {
+                "response_type": "ephemeral",
+                "text": "You are trying to use this bot outside of slack... Jasper is disappointed in you..."
+            }
+        }
         res.json(jsonResponse);
     });
 }
