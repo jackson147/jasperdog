@@ -1,19 +1,20 @@
 node {
     def app
-    def props = readJSON file: 'package.json'
-    def version = props['version']
+    
 
     def remote = [:]
     remote.name = "dev-server"
     remote.host = "newlinkedlist.xyz"
     remote.allowAnyHosts = true
 
-
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
         checkout scm
     }
+
+    def props = readJSON file: 'package.json'
+    def version = props['version']
 
     stage('Build image') {
         /* This builds the actual image; synonymous to
