@@ -15,7 +15,12 @@ module.exports = function(){
             if(messageContent.includes("carrot")){
                 msg.reply("https://i2-prod.birminghammail.co.uk/incoming/article14143650.ece/ALTERNATES/s810/Jasper-face-crop.jpg")
             }else{
-                msg.reply(jaspertools.getRandomImageUrl(true))
+                //To stop someone taking the piss
+                const numOfJaspers = messageContent.count("jasper") <= 5 ? messageContent.count("jasper") : 5;
+
+                for (let i = 0; i < numOfJaspers; i++) {
+                    msg.reply(jaspertools.getRandomImageUrl(true))
+                }
             }
         }
     })
