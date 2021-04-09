@@ -55,3 +55,10 @@ jobs:
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+      
+      - 
+        name: Webhook Action
+        uses: joelwmale/webhook-action@2.1.0
+        with:
+          # The url to send the webhook event to
+          url: https://portainer.newlinkedlist.com/api/webhooks/271691d2-42b0-4a25-823f-32b979383df6
