@@ -27,4 +27,8 @@ node {
             app.push("latest")
         }
     }
+
+    stage('Notify portainer') {
+        httpRequest 'https://portainer.newlinkedlist.com/api/webhooks/271691d2-42b0-4a25-823f-32b979383df6'
+    }
 }
