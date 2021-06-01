@@ -10,15 +10,6 @@ services:
      - slack-client-id
      - slack-client-secret
      - discord-secret
-    deploy:
-      labels:
-        - "traefik.enable=true" # <== Enable traefik to proxy this container
-        - "traefik.http.routers.jasper-secured.rule=Host(`jasperdog.newlinkedlist.xyz`)"
-        - "traefik.http.routers.jasper-secured.entrypoints=web-secured" # <== Defining entrypoint for https, **ref: line 31
-        - "traefik.http.routers.jasper-secured.tls=true"
-        - "traefik.http.services.jasper.loadbalancer.server.port=8080"
-        - "traefik.http.middlewares.test-ratelimit.ratelimit.average=6"
-        - "traefik.http.middlewares.test-ratelimit.ratelimit.period=1m"
 networks:
   web:
     external: true
