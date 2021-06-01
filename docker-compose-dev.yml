@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   jasperdog:
-    image: jackson147/jasperdog:latest
+    image: jackson147/jasperdog-dev:latest
     networks:
      - web
     secrets:
