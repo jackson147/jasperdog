@@ -1,1 +1,0 @@
-sudo docker build -t jasperdog . && sudo docker stack rm jasperdog && sleep 3 && sudo docker stack deploy -c docker-compose.yml jasperdog && sleep  2 && sudo docker service logs jasperdog_jasperdog -f

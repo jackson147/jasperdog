@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   jasperdog:
-    image: jackson147/jasperdog:latest
+    image: jackson147/jasperdog-dev:latest
     networks:
      - web
     secrets:
@@ -16,10 +16,10 @@ networks:
 
 secrets:
   slack-signing-secret:
-    external: true
+    file: '/home/rich/pass/slack-signing-secret-dev'
   slack-client-id:
-    external: true
+    file: '/home/rich/pass/slack-client-id-dev'
   slack-client-secret:
-    external: true
+    file: '/home/rich/pass/slack-client-secret-dev'
   discord-secret:
-    external: true
+    file: '/home/rich/pass/discord-secret-dev'
