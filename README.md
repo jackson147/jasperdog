@@ -1,28 +1,20 @@
 # JasperDog Slack bot
 
 NodeJS API that returns a random imgur link of Jasper the dog. 
-Hooks up with slack to be used as a slash command.
+Hooks up with discord and slack to be used as a bot.
 
-## Getting Started
+### Note
+Setting this up is a pain in the ass, you're going to need bots setup in discord and slack with the secrets listed below.
+I host this app in a single node swarm so I can make use of docker secrets.
+Really it is much easier to simply contribute to this repository by:
 
-`./build-deploy-log.sh`
-
-### Prerequisites
-
-#### Following installed:
-* docker-ce
-* docker-compose
- 
-#### Server setup:
-* Your node as a docker swarm (you don't need multiple servers).
+1. Submit a PR to develop
+2. Merge yourself (or ask me)
+3. A jenkins pipeline will pickup your change and deploy a new dev instance.
+4. We will test in the discord dev server.
 
 #### Docker swarm secrets:
 * slack-signing-secret
 * slack-client-id
 * slack-client-secret
-
-#### Docker swarm overlay network:
-* web
-
-## Notes
-I've left the labels in that work with traefik, you'll need to edit them to work with your deployment. If you're not using traefik the labels should just be ignored.
+* discord-secret
