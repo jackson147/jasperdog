@@ -29,6 +29,6 @@ node {
     }
 
     stage('Notify portainer') {
-        httpRequest httpMode: 'POST', url: 'https://portainer.newlinkedlist.com/api/webhooks/3d9cf458-3ba9-479b-a92a-19bba25d10e9'
+        httpRequest httpMode: 'POST', url: 'https://portainer.newlinkedlist.com/api/webhooks/e7bad295-5305-43dc-bce6-b67ffd567b26'
     }
 }
