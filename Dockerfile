@@ -4,7 +4,7 @@ WORKDIR /code
 
 COPY package*.json ./
 COPY urls.txt ./
-COPY slack/add_to_slack.html ./
+COPY add_to_slack.html ./
 
 RUN npm install
 
