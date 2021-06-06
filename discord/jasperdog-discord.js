@@ -1,5 +1,6 @@
 const fs = require('fs')
-const jaspertools = require('./jasper-tools')
+const jaspertools = require('../jasper-tools')
+const jasperService = require('./jasperdog-discord-service')
 
 const Discord = require("discord.js")
 const client = new Discord.Client()
@@ -11,13 +12,8 @@ module.exports = function(){
     })
     client.on("message", msg => {
         let messageContent = msg.content.toLowerCase()
-        if (messageContent.startsWith("jasper")) {
-            if(messageContent.includes("carrot")){
-                msg.reply("https://i2-prod.birminghammail.co.uk/incoming/article14143650.ece/ALTERNATES/s810/Jasper-face-crop.jpg")
-            }else{
-                msg.reply(jaspertools.getRandomImageUrl(true))
-            }
-        }
+        let image = jasperService.getImage(messageContent)
+        msg.reply(image)
     })
     client.login(discordSecret)
 }

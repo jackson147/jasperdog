@@ -1,4 +1,4 @@
-# JasperDog Slack bot
+# JasperDog Discord/Slack bot
 
 NodeJS API that returns a random imgur link of Jasper the dog. 
 Hooks up with discord and slack to be used as a bot.
@@ -12,6 +12,11 @@ Really it is much easier to simply contribute to this repository by:
 2. Merge yourself (or ask me)
 3. A jenkins pipeline will pickup your change and deploy a new dev instance.
 4. We will test in the discord dev server.
+
+### New - Dev mode
+1. Run `npm run-script dev-start`
+2. Browse to `localhost:8080/<INPUT>` - Your input can be any string to test the service class. For example `localhost:8080/jasper` will return an image url.
+3. Test your changes here as you work on them. Try and keep you changes to the `jasperdog-discord-dev.js` file. 
 
 #### Docker swarm secrets:
 * slack-signing-secret
