@@ -7,18 +7,13 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-//Support whatever we can in DEV mode.
-if (process.env.NODE_ENV !== 'production') {
-  require('./discord/jasperdog-discord-dev')(app);
-}else{
-  require('./slack/jasperdog-slack')(app);
-  require("./discord/jasperdog-discord")();
-}
+require('./jasperdog-slack')(app);
+require("./jasperdog-discord")();
 
 app.listen(port, () => console.log(`JasperDog is listening on port ${port}!`))
 
 app.use(function (err, req, res, next) {
   console.error(err.stack)
-  res.status(500).send('Something went wrong. Jasper is sad dog...')
+  res.status(500).send('You are trying to use this bot outside of Slack. Jasper is sad dog...')
 })
 

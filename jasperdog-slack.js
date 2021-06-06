@@ -1,8 +1,8 @@
-const version = require('../package.json').version;
+const version = require('./package.json').version;
 const auth = require('./slack-auth');
 const fs = require('fs');
 const request = require('request');
-const jaspertools = require('../jasper-tools')
+const jaspertools = require('./jasper-tools')
 
 let clientId = fs.readFileSync("/run/secrets/slack-client-id").toString('utf8').trim();
 let clientSecret = fs.readFileSync("/run/secrets/slack-client-secret").toString('utf8').trim();
