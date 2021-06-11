@@ -8,6 +8,7 @@ const getImage = function(messageContent){
            return jaspertools.getRandomImageUrl(true)
         }
     }
+    return undefined
 }
 
 module.exports = {

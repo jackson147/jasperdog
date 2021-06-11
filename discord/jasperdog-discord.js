@@ -13,7 +13,9 @@ module.exports = function(){
     client.on("message", msg => {
         let messageContent = msg.content.toLowerCase()
         let image = jasperService.getImage(messageContent)
-        msg.reply(image)
+        if(image){
+            msg.reply(image)
+        }
     })
     client.login(discordSecret)
 }
