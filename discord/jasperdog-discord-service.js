@@ -2,8 +2,9 @@ const jaspertools = require('../jasper-tools')
 
 const getImage = function(messageContent){
     let jaspers = messageContent.match(/jasper/gm);
+    let urls = messageContent.match(/http/gm); //stop bot responding to itself
 
-    if (jaspers.length > 0) {
+    if (jaspers !== null && jaspers.length > 0 && urls === null) {
         if(messageContent.includes("carrot")){
             return "https://i2-prod.birminghammail.co.uk/incoming/article14143650.ece/ALTERNATES/s810/Jasper-face-crop.jpg"
         }else{
