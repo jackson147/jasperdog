@@ -1,0 +1,9 @@
+{
+    "minio" : {
+        "endPoint" : "minio.newlinkedlist.com",
+        "accessKey" : "jackson147",
+        "secretKey" : "",
+        "port": 443,
+        "useSSL": true
+    }
+}
