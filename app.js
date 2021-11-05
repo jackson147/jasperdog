@@ -13,7 +13,7 @@ jaspertools.refreshImages()
 //Setup a loop to ensure images are refreshed
 setInterval(function() {
   jaspertools.refreshImages()
-}, 30000);
+}, 3600000);
 
 //Support whatever we can in DEV mode.
 if (process.env.NODE_ENV !== 'production') {
