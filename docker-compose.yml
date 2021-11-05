@@ -10,6 +10,7 @@ services:
      - slack-client-id
      - slack-client-secret
      - discord-secret
+     - minio-secret
 networks:
   web:
     external: true
@@ -22,4 +23,6 @@ secrets:
   slack-client-secret:
     external: true
   discord-secret:
+    external: true
+  minio-secret:
     external: true

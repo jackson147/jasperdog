@@ -1,5 +1,4 @@
 const fs = require('fs')
-const jaspertools = require('../jasper-tools')
 const jasperService = require('./jasperdog-discord-service')
 
 module.exports = function(app){
