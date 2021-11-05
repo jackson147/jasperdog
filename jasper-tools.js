@@ -10,7 +10,7 @@ var minioConfig = config.minio
 //Try and load the secret if present
 try{
     let minioSecretKey = fs.readFileSync("/run/secrets/minio-secret").toString('utf8').trim();
-    minioConfig['accessKey'] = minioSecretKey
+    minioConfig['secretKey'] = minioSecretKey
 }catch(e){
     console.warn("Can't load secret, you must have the minio key set in the config file built into this image.")
 }
