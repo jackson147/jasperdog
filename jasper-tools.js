@@ -33,16 +33,8 @@ const refreshImages = function(){
 }
 
 const getRandomImageUrl = function(stripMedium){
-    var stream = minioClient.listObjectsV2('images','', true,'')
-    stream.on('data', function (obj) {
-        let fileName = obj.name;
-        if (fileName.endsWith(".jpg")) {
-            imageArray.push(fileName);
-        }
-    })
-    stream.on('error', function(err) { console.log(err) } )
-
-    let url = imageArray[Math.floor(Math.random() * imageArray.length)];
+    let fileName = imageArray[Math.floor(Math.random() * imageArray.length)];
+    let url = 'https://minio.newlinkedlist.com/images/' + fileName
     return url;
 }
 
