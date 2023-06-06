@@ -9,7 +9,7 @@
   "dependencies": {
     "discord.js": "^12.1.1",
     "express": "^4.17.3",
-    "minio": "^7.0.19",
+    "minio": "^7.1.1",
     "request": "^2.88.2"
   },
   "devDependencies": {}
